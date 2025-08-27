@@ -8,3 +8,9 @@ It can search through folders recursively.
 to use it:
 - change the path to your drive/folder
 - specify the count of most common words to make the title (default 5), in the function count recurrence (change n variable)
+
+
+potentially comming soon:
+- a wordlist for stop words
+- some llm to handle filenames
+- some sorting algorithm
