@@ -14,3 +14,4 @@ potentially comming soon:
 - a wordlist for stop words
 - some llm to handle filenames
 - some sorting algorithm
+- xlsx files handling
