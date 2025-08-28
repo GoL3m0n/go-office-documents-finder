@@ -11,7 +11,6 @@ to use it:
 
 
 potentially comming soon:
-- a wordlist for stop words
 - some llm to handle filenames
 - some sorting algorithm (ollama self hosted)
 - xlsx files handling
