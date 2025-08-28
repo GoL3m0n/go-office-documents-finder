@@ -128,74 +128,7 @@ func checkstopword(stopwords []string, word string) bool {
 	return false
 }
 
-func removeStopWords(text []string) []string {
-	var stopwords = []string{
-		"a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "aren't", "as", "at",
-		"be", "because", "been", "before", "being", "below", "between", "both", "but", "by",
-		"could", "couldn't",
-		"did", "didn't", "do", "does", "doesn't", "doing", "don't", "down", "during",
-		"each",
-		"few", "for", "from", "further",
-		"had", "hadn't", "has", "hasn't", "have", "haven't", "having", "he", "he'd", "he'll", "he's", "her", "here", "here's", "hers", "herself", "him", "himself", "his", "how", "how's",
-		"i", "i'd", "i'll", "i'm", "i've", "if", "in", "into", "is", "isn't", "it", "it's", "its", "itself",
-		"let's",
-		"me", "more", "most", "mustn't", "my", "myself",
-		"no", "nor", "not", "now",
-		"of", "off", "on", "once", "only", "or", "other", "ought", "our", "ours", "ourselves", "out", "over", "own",
-		"same", "she", "she'd", "she'll", "she's", "should", "shouldn't", "so", "some", "such",
-		"than", "that", "that's", "the", "their", "theirs", "them", "themselves", "then", "there", "there's", "these", "they", "they'd", "they'll", "they're", "they've", "this", "those", "through", "to", "too",
-		"under", "until", "up",
-		"very",
-		"was", "wasn't", "we", "we'd", "we'll", "we're", "we've", "were", "weren't", "what", "what's", "when", "when's", "where", "where's", "which", "while", "who", "who's", "whom", "why", "why's", "will", "with", "won't", "would", "wouldn't",
-		"you", "you'd", "you'll", "you're", "you've", "your", "yours", "yourself", "yourselves",
-
-		"alors", "au", "aucuns", "aussi", "autre", "avant", "avec", "avoir",
-		"bon",
-		"car", "ce", "cela", "ces", "ceux", "chez", "comme", "comment",
-		"dans", "des", "du", "donc", "dos",
-		"elle", "elles", "en", "encore", "est", "et", "eu", "être",
-		"fait", "faites", "fois",
-		"hommes",
-		"ici", "il", "ils",
-		"je", "juste",
-		"la", "le", "les", "leur", "là",
-		"ma", "maintenant", "mais", "me", "même", "mes", "mien", "moins", "mon", "mot",
-		"ni", "nom", "nos", "notre", "nous",
-		"on", "ou", "où",
-		"par", "parce", "pas", "peu", "peut", "pour", "pourquoi", "quand", "que", "quel", "quelle", "quelles", "quels", "qui",
-		"sa", "sans", "ses", "seulement", "si", "sien", "son", "sont", "sous", "soyez", "sujet", "sur",
-		"ta", "te", "tes", "toi", "ton", "tous", "tout", "trop", "très", "tu",
-		"un", "une",
-		"vos", "votre", "vous",
-		"vu",
-		"ça", "étaient", "état", "était", "étant", "être",
-
-		"aber", "alle", "allem", "allen", "aller", "alles", "als", "also", "am", "an", "ander", "andere", "anderem", "anderen", "anderer", "anderes",
-		"anderm", "andern", "anderr", "anders",
-		"auch", "auf", "aus",
-		"bei", "bin", "bis", "bist",
-		"da", "damit", "dann", "das", "dass", "dasselbe", "dazu", "dein", "deine", "deinem", "deinen", "deiner", "deines", "dem", "den", "der", "derer", "dessen", "des", "deshalb", "die", "dies", "diese", "diesem", "diesen", "dieser", "dieses",
-		"doch", "dort", "du", "durch",
-		"ein", "eine", "einem", "einen", "einer", "eines", "einig", "einige", "einigem", "einigen", "einiger", "einiges", "einmal", "er", "es",
-		"etwas",
-		"für",
-		"gegen", "gewesen",
-		"hab", "habe", "haben", "hat", "hatte", "hatten", "hier", "hin", "hinter",
-		"ich", "ihm", "ihn", "ihnen", "ihr", "ihre", "ihrem", "ihren", "ihrer", "ihres", "im", "in", "indem", "ins", "ist",
-		"jede", "jedem", "jeden", "jeder", "jedes",
-		"jener", "jenes",
-		"jetzt",
-		"kann", "kein", "keine", "keinem", "keinen", "keiner", "keines", "könnte",
-		"machen", "man", "manche", "manchem", "manchen", "mancher", "manches", "mein", "meine", "meinem", "meinen", "meiner", "meines", "mich", "mir", "mit", "muss", "musste",
-		"nach", "nicht", "nichts", "noch", "nun", "nur",
-		"ob", "oder", "ohne",
-		"sehr", "sein", "seine", "seinem", "seinen", "seiner", "seines", "selbst", "sich", "sie", "sind", "so", "solche", "solchem", "solchen", "solcher", "solches", "soll", "sollte", "sondern", "sonst",
-		"über", "um", "und", "uns", "unser", "unsere", "unserem", "unseren", "unserer", "unseres",
-		"unter",
-		"viel", "vom", "von", "vor",
-		"war", "waren", "warst", "was", "weg", "weil", "weiter", "welche", "welchem", "welchen", "welcher", "welches", "wenn", "werde", "werden", "wie", "wieder", "will", "wir", "wird", "wirst", "wo", "wollen", "wollte", "worden", "wurde", "wurden",
-		"zu", "zum", "zur", "zwar", "zwischen",
-	}
+func removeStopWords(text []string, stopwords []string) []string {
 	filtered := []string{}
 	for _, word := range text {
 		if !checkstopword(stopwords, word) {
@@ -292,6 +225,12 @@ func dFName(mostpresent []string, fext string) string {
 }
 
 func main() {
+	fpath := "test.txt"
+	data, err := os.ReadFile(fpath)
+	if err != nil {
+		log.Fatal("couldnt read stopwords list please check if its in ur working directory")
+	}
+	stopwords := strings.Split(string(data), "\n")
 	path := "path/to/your/files" //change that later on ***********************************************************
 	dirs, files := scandirs(path)
 	log.Printf("\nfiles:\n", files)
@@ -337,7 +276,7 @@ func main() {
 			fmt.Printf("\nrenaming a ppt.....\n")
 			text := readpdf(fi)
 			tk := tokenization(text)
-			cleaned := removeStopWords(tk)
+			cleaned := removeStopWords(tk, stopwords)
 			mostpresent := countRecurence(cleaned)
 			finalname := dFName(mostpresent, filext)
 			fmt.Print("\nfinalname: ", finalname, "\n", "path: \n", subpath, "\n............................................................\n")
