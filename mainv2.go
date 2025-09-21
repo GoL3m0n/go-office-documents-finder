@@ -1,6 +1,6 @@
 package main
 /*this verrsion is shorter but contains a version with an llm using the ollama api
-feel free to change to a lighter version, for a shorter execution time and less ressorce consumption*/
+feel free to change to a lighter version, for a shorter execution time and less ressource consumption*/
 
 
 
